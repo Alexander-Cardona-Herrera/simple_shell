@@ -1,6 +1,13 @@
 #include "holberton.h"
 #include <sys/stat.h>
 
+/**
+ * process_ejecutables - this process creates the child processes and executes
+ * @tokens: tokens
+ * main - Return
+ * Return: void
+ */
+
 void process_ejecutables(char **tokens)
 {
 	pid_t pid;
@@ -17,7 +24,6 @@ void process_ejecutables(char **tokens)
 
 	if (pid == 0)
 	{
-	
 		if (tokens[0] != NULL && token[0] != '/')
 		{
 			tokens[0] = str_concat("/", tokens[0]);
@@ -31,16 +37,19 @@ void process_ejecutables(char **tokens)
 				i++;
 			}
 			if (stat(aux, &st) == -1)
-			perror("Error");
-			free(aux);
-			exit(0);
+			{
+				_perror(tokens[0]);
+				free(aux);
+				exit(0);
+			}
 		}
-		else if (execve(tokens[0], tokens, environ) == 0 && token[0] != '\n')
+	
+		else if (execve(tokens[0], tokens, environ) == -1 && token[0] != '\n')
 		{
 			perror("Error");
 			free(tokens);
 			exit(0);
 		}
-		free(paths);
 	}
+free(paths);
 }

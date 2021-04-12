@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * main - entry point.
+ *
+ * Return: Always 0.
+ */
+
 int main(void)
 {
 	char *comando;
@@ -18,11 +24,9 @@ int main(void)
 	return (0);
 }
 
-/*void control_c(void)
+/*
+void control_c(void)
 	{
-		signal(SIGINT, control_c);
-		fflush(stdout);
-	}
-	*/
-
-
+	signal(SIGINT, control_c);
+	fflush(stdout);
+*/

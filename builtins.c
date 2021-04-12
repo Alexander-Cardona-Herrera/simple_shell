@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * built_ins - simple shell built-in commands
+ * @comando: receives commands to tokenize
+ * main - Return
+ * Return: void
+ */
 
 void built_ins(char *comando)
 {

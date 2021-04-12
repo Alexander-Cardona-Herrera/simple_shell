@@ -8,6 +8,7 @@
 #include <sys/wait.h>
 #include <sys/types.h>
 #include <signal.h>
+#include <errno.h>
 
 /*main file prototypes*/
 void control_c(void);
@@ -25,6 +26,7 @@ int contar_palabras(char *frase);
 char *str_concat(char *s1, char *s2);
 char *_strdup(char *str);
 int _strlen(char *s);
+void _perror(char *tokens);
 
 
 /*paths file prototypes*/

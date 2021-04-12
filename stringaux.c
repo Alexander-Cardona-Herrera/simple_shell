@@ -1,5 +1,14 @@
 #include "holberton.h"
 
+/**
+ * _strncmp - function that compares two strings
+ * @s1: first variable to compare
+ * @s2: second variable to compare
+ * @n: size
+ * main - Return
+ * Return: void
+ */
+
 int _strncmp(char *s1, char *s2, size_t n)
 {
 	size_t i;
@@ -23,6 +32,13 @@ int _strncmp(char *s1, char *s2, size_t n)
 	return (0);
 }
 
+/**
+ * contar_palabras - function that counts words
+ * @frase: sentence containing the words to count
+ * main - Return
+ * Return: void
+ */
+
 int contar_palabras(char *frase)
 {
 	int i, count = 0;
@@ -38,6 +54,14 @@ int contar_palabras(char *frase)
 
 	return (count);
 }
+
+/**
+ * str_concat - function that concatenates two strings
+ * @s1: first word to concatenate
+ * @s2: second word to concatenate
+ * main - Return
+ * Return: void
+ */
 
 char *str_concat(char *s1, char *s2)
 {
@@ -74,6 +98,13 @@ char *str_concat(char *s1, char *s2)
 	return (aux);
 }
 
+/**
+ * _strdup - function that duplicates a strings
+ * @str: strings to duplicate
+ * main - Return
+ * Return: void
+ */
+
 char *_strdup(char *str)
 {
 	char *aux;
@@ -98,6 +129,13 @@ char *_strdup(char *str)
 
 	return (aux);
 }
+
+/**
+ * _strlen - function that returns size of a string
+ * @s: string
+ * main - Return
+ * Return: void
+ */
 
 int _strlen(char *s)
 {

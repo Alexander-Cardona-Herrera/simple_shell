@@ -1,5 +1,11 @@
 #include "holberton.h"
 
+/**
+ * read_line - interpret the command line passed
+ * main - Return
+ * Return: void
+ */
+
 char *read_line(void)
 {
 	ssize_t bytes_leidos;
@@ -20,8 +26,10 @@ char *read_line(void)
 
 	else if (bytes_leidos == -1)
 	{
+		
 		write(STDIN_FILENO, "Error", 6);
+		free(comando);
+		exit(0);
 	}
-
 	return (comando);
 }

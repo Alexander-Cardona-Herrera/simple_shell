@@ -1,11 +1,18 @@
 #include "holberton.h"
 
+/**
+ * dividir_comandos - simple shell command tokenizer
+ * @comando: passed commands
+ * main - Return
+ * Return: void
+ */
 char **dividir_comandos(char *comando)
 {
 	int posicion = 0;
 	char *token;
+	char **tokens;
 
-	char **tokens = malloc((contar_palabras(comando) + 1) * sizeof(char*));
+	tokens = malloc((contar_palabras(comando) + 1) * sizeof(char *));
 
 	if (tokens == NULL)
 		return (NULL);
@@ -14,12 +21,12 @@ char **dividir_comandos(char *comando)
 
 	while (token != NULL)
 	{
-		
+
 		tokens[posicion] = token;
-	
+
 		posicion++;
 		token = strtok(NULL, " \t\r\n");
 	}
 	tokens[posicion] = NULL;
-	return tokens;
+	return (tokens);
 }
