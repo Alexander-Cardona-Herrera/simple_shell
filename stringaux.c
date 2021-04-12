@@ -1,41 +1,42 @@
 #include "holberton.h"
 
-int _strncmp (char *s1, char *s2, size_t n)
+int _strncmp(char *s1, char *s2, size_t n)
 {
-	int i;
+	size_t i;
 
-	for(int i = 0; i < n; i++)
-    {
-        if (s1[i] == s2[i])
-        {
-            if(i == (n-1))
-                return 0;
-        }
+	for (i = 0; i < n; i++)
+	{
+		if (s1[i] == s2[i])
+		{
+			if (i == (n - 1))
+				return (0);
+		}
 
-        int a1 = (int) s1[i];
-        int a2 = (int) s2[i];
-		
-        if(a1 > a2)
-            return 1;
-        if(a2 > a1)
-            return -1;
-    }
+		int a1 = (int) s1[i];
+		int a2 = (int) s2[i];
+
+		if (a1 > a2)
+			return (1);
+		if (a2 > a1)
+			return (-1);
+	}
+	return (0);
 }
 
 int contar_palabras(char *frase)
 {
 	int i, count = 0;
 
-    for (i = 0; frase[i]; i++)
-    {
-        if (frase[i] == 32 && frase[i + 1] != 32 && frase[i + 1] != 0)
-            count++;
-    }
+	for (i = 0; frase[i]; i++)
+	{
+		if (frase[i] == 32 && frase[i + 1] != 32 && frase[i + 1] != 0)
+			count++;
+	}
 
-    if (frase[0] != 32)
-        count++;
+	if (frase[0] != 32)
+		count++;
 
-    return (count);
+	return (count);
 }
 
 char *str_concat(char *s1, char *s2)
@@ -71,4 +72,40 @@ char *str_concat(char *s1, char *s2)
 		aux[i - 1 + j] = s2[j];
 
 	return (aux);
+}
+
+char *_strdup(char *str)
+{
+	char *aux;
+	int i;
+	int j;
+
+	if (str == 0)
+		return (NULL);
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+	}
+	i++;
+
+	aux = malloc(i * sizeof(char));
+
+	if (!aux)
+		return (NULL);
+
+	for (j = 0; j < i; j++)
+		aux[j] = str[j];
+
+	return (aux);
+}
+
+int _strlen(char *s)
+{
+	int c;
+
+	for (c = 0; *s != '\0'; c++)
+		{
+		s++;
+		}
+	return (c);
 }

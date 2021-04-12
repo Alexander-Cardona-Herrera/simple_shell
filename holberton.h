@@ -7,9 +7,10 @@
 #include <unistd.h>
 #include <sys/wait.h>
 #include <sys/types.h>
+#include <signal.h>
 
 /*main file prototypes*/
-void repetir_acciones(void);
+void control_c(void);
 
 /*interpreter file prototypes*/
 char *read_line(void);
@@ -17,21 +18,24 @@ char *read_line(void);
 /*built ins file prototypes*/
 void built_ins(char *comando);
 
+
 /*string aux file prototypes*/
-int _strncmp (char *s1, char *s2, size_t n);
+int _strncmp(char *s1, char *s2, size_t n);
 int contar_palabras(char *frase);
 char *str_concat(char *s1, char *s2);
+char *_strdup(char *str);
+int _strlen(char *s);
 
 
 /*paths file prototypes*/
-extern char** environ;
 char *_path(void);
 char **dividir_path(char *aux);
+extern char **environ;
 
 /*commands file prototypes*/
 char **dividir_comandos(char *comando);
 
 /*executor file prototypes*/
-int process_ejecutables(char **tokens);
+void process_ejecutables(char **tokens);
 
 # endif

@@ -23,13 +23,14 @@ char **dividir_path(char *aux)
     int conteo = 1;
 	char *aux1;
     char *path;
-
-    for(i = 0; aux[i] != '\0'; i++)
+   
+    for (i = 0; aux[i] != '\0'; i++)
+    {
         if (aux[i] == ':')
             conteo++;
-
+    }
 	char **paths = malloc((conteo + 1) * sizeof(char*));
-	aux1 = strdup(aux);
+	aux1 = _strdup(aux);
 	path = strtok(aux1, ":");
 
 	while (path != NULL)
@@ -39,5 +40,7 @@ char **dividir_path(char *aux)
 		path = strtok(NULL, ":");
 	}
 	paths[posicion] = NULL;
+
+    free(aux1);
 	return (paths);
 }

@@ -1,22 +1,23 @@
 #include "holberton.h"
 #include <sys/stat.h>
 
-int process_ejecutables(char **tokens)
+void process_ejecutables(char **tokens)
 {
 	pid_t pid;
-	char *token = tokens[0];
+	int i = 0;
+	char *token = tokens[0], *fullpath, *aux;
 	char **paths;
-	char *fullpath;
 	struct stat st;
+
 	pid = fork();
 	wait(NULL);
-	int i = 0;
+
 	fullpath = _path();
 	paths = dividir_path(fullpath);
-	char *aux;
-	
-	if (pid == 0) 
+
+	if (pid == 0)
 	{
+	
 		if (tokens[0] != NULL && token[0] != '/')
 		{
 			tokens[0] = str_concat("/", tokens[0]);
@@ -29,11 +30,15 @@ int process_ejecutables(char **tokens)
 				}
 				i++;
 			}
+			if (stat(aux, &st) == -1)
+			perror("Error");
+			free(aux);
+			exit(0);
 		}
-		
-		else if (execve(tokens[0], tokens, environ) == -1)
+		else if (execve(tokens[0], tokens, environ) == 0 && token[0] != '\n')
 		{
 			perror("Error");
+			free(tokens);
 			exit(0);
 		}
 		free(paths);

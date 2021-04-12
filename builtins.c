@@ -1,30 +1,24 @@
 #include "holberton.h"
 
+
 void built_ins(char *comando)
 {
-    char *fullpath;
-    char **paths;
-    int i;
+	int i = 0;
 
-	if(_strncmp(comando, "exit", 5) == 0)
+	if (_strncmp(comando, "exit", 5) == 0)
 	{
-        free(comando);
-   		exit(0);
-    }
-
-    if(_strncmp(comando, "env", 4) == 0)
-	{
-        int i = 0;
-        char *aux = NULL;
-
-        while (environ[i] != NULL)
-        {
-            write(STDOUT_FILENO, environ[i], strlen(environ[i]));
-            write(STDOUT_FILENO, "\n", 1);
-            i++;
-        }
+		free(comando);
+		exit(0);
 	}
-    
-    /*	if (tokens[0] == "\n" && tokens[1] == NULL)
-		read_line();*/
+
+	if (_strncmp(comando, "env", 4) == 0)
+	{
+		while (environ[i] != NULL)
+		{
+			write(STDOUT_FILENO, environ[i], _strlen(environ[i]));
+			write(STDOUT_FILENO, "\n", 1);
+			i++;
+		}
+
+	}
 }
