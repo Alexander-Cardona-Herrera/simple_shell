@@ -11,7 +11,7 @@
 #include <errno.h>
 
 /*main file prototypes*/
-void control_c(void);
+void control_c(int sign);
 
 /*interpreter file prototypes*/
 char *read_line(void);

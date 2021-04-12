@@ -11,7 +11,8 @@ int main(void)
 	char *comando;
 	char **tokens;
 	int status = 1;
-	/*signal(SIGINT, control_c);*/
+	signal(SIGINT, control_c);
+	
 	while (status)
 	{
 		comando = read_line();
@@ -24,9 +25,9 @@ int main(void)
 	return (0);
 }
 
-/*
-void control_c(void)
-	{
+void control_c(int sign)
+{
+	signal(sign, SIG_IGN);
+	write(STDOUT_FILENO, "\n#cisfun$ ", 11);
 	signal(SIGINT, control_c);
-	fflush(stdout);
-*/
+}
