@@ -34,15 +34,15 @@ char **dividir_path(char *aux)
 	int posicion = 0;
 	int i;
 	int conteo = 1;
-	char *aux1;
-	char *path;
+	char *aux1 = NULL;
+	char *path = NULL;
 
 	for (i = 0; aux[i] != '\0'; i++)
 	{
 		if (aux[i] == ':')
 			conteo++;
 	}
-	char **paths = malloc((conteo + 1) * sizeof(char *));
+	char **paths = malloc((conteo + 2) * sizeof(char *));
 	if (paths != NULL)
 	{
 		aux1 = _strdup(aux);

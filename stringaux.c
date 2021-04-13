@@ -84,16 +84,18 @@ char *str_concat(char *s1, char *s2)
 	}
 	k++;
 
-	aux = malloc((i + k - 1) * sizeof(char));
+	aux = malloc((i + k) * sizeof(char));
 
 	if (!aux)
 		return (NULL);
 
 	for (j = 0; s1[j] != '\0'; j++)
 		aux[j] = s1[j];
+	
+	aux[j++] = '/';
 
 	for (j = 0; s2[j] != '\0'; j++)
-		aux[i - 1 + j] = s2[j];
+		aux[i + j] = s2[j];
 
 	return (aux);
 }

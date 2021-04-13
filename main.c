@@ -12,22 +12,27 @@ int main(void)
 	char **tokens;
 	int status = 1;
 	signal(SIGINT, control_c);
-	
-	while (status)
-	{
+
+	if (isatty(STDIN_FILENO) == 1)
+		while (status)
+		{
+			write(STDOUT_FILENO, "#cisfun$ ", 10);
+			comando = read_line();
+			built_ins(comando);
+			tokens = dividir_comandos(comando);
+			process_ejecutables(tokens);
+			free(comando);
+			free(tokens);
+		}
+	else
+		{
 		comando = read_line();
 		built_ins(comando);
 		tokens = dividir_comandos(comando);
 		process_ejecutables(tokens);
 		free(comando);
 		free(tokens);
-	}
+		}
+	
 	return (0);
-}
-
-void control_c(int sign)
-{
-	signal(sign, SIG_IGN);
-	write(STDOUT_FILENO, "\n#cisfun$ ", 11);
-	signal(SIGINT, control_c);
 }

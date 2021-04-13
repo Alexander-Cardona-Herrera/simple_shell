@@ -9,8 +9,8 @@
 char **dividir_comandos(char *comando)
 {
 	int posicion = 0;
-	char *token;
-	char **tokens;
+	char *token = NULL;
+	char **tokens = NULL;
 
 	tokens = malloc((contar_palabras(comando) + 1) * sizeof(char *));
 

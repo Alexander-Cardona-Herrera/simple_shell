@@ -12,13 +12,12 @@ void process_ejecutables(char **tokens)
 {
 	pid_t pid;
 	int i = 0;
-	char *token = tokens[0], *fullpath, *aux;
-	char **paths;
+	char *token = tokens[0], *fullpath = NULL, *aux = NULL;
+	char **paths = NULL;
 	struct stat st;
 
 	pid = fork();
 	wait(NULL);
-
 	fullpath = _path();
 	paths = dividir_path(fullpath);
 
@@ -26,7 +25,6 @@ void process_ejecutables(char **tokens)
 	{
 		if (tokens[0] != NULL && token[0] != '/')
 		{
-			tokens[0] = str_concat("/", tokens[0]);
 			while (paths[i] != NULL)
 			{
 				aux = str_concat(paths[i], tokens[0]);
@@ -36,6 +34,7 @@ void process_ejecutables(char **tokens)
 				}
 				i++;
 			}
+
 			if (stat(aux, &st) == -1)
 			{
 				_perror(tokens[0]);
@@ -43,13 +42,13 @@ void process_ejecutables(char **tokens)
 				exit(0);
 			}
 		}
-	
 		else if (execve(tokens[0], tokens, environ) == -1 && token[0] != '\n')
 		{
-			perror("Error");
+			_perror(tokens[0]);
 			free(tokens);
 			exit(0);
 		}
 	}
-free(paths);
+	free (aux);
+	free(paths);
 }
