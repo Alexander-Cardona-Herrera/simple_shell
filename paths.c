@@ -47,15 +47,13 @@ char **dividir_path(char *aux)
 	{
 		aux1 = _strdup(aux);
 		path = strtok(aux1, ":");
-
 		while (path != NULL)
 		{
 			paths[posicion] = path;
-			posicion++;
 			path = strtok(NULL, ":");
+			posicion++;
 		}
 		paths[posicion] = NULL;
 	}
-	free(aux1);
 	return (paths);
 }

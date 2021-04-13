@@ -23,8 +23,8 @@ char **dividir_comandos(char *comando)
 	{
 
 		tokens[posicion] = token;
-		posicion++;
 		token = strtok(NULL, " \t\r\n");
+		posicion++;
 	}
 	tokens[posicion] = NULL;
 	return (tokens);

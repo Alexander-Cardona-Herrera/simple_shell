@@ -121,7 +121,7 @@ char *_strdup(char *str)
 	}
 	i++;
 
-	aux = malloc(i * sizeof(char));
+	aux = malloc((i + 1) * sizeof(char));
 
 	if (!aux)
 		return (NULL);
