@@ -17,6 +17,7 @@ int _strncmp(char *s1, char *s2, size_t n)
 	{
 		int a1 = 0;
 		int a2 = 0;
+
 		if (s1[i] == s2[i])
 		{
 			if (i == (n - 1))
