@@ -11,6 +11,7 @@ int main(void)
 	char *comando;
 	char **tokens;
 	int status = 1;
+
 	signal(SIGINT, control_c);
 
 	if (isatty(STDIN_FILENO) == 1)
@@ -33,6 +34,6 @@ int main(void)
 		free(comando);
 		free(tokens);
 		}
-	
+
 	return (0);
 }

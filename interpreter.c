@@ -1,5 +1,9 @@
 #include "holberton.h"
 
+/**
+ * read_line - read lines
+ * Return: char *
+ */
 char *read_line(void)
 {
 	ssize_t bytes_leidos;

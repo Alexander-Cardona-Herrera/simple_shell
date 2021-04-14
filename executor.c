@@ -34,7 +34,6 @@ void process_ejecutables(char **tokens)
 				}
 				i++;
 			}
-
 			if (stat(aux, &st) == -1)
 			{
 				_perror(tokens[0]);
@@ -49,6 +48,6 @@ void process_ejecutables(char **tokens)
 			exit(0);
 		}
 	}
-	free (aux);
+	free(aux);
 	free(paths);
 }
