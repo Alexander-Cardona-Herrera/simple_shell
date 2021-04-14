@@ -11,13 +11,15 @@ char **dividir_comandos(char *comando)
 	int posicion = 0;
 	char *token = NULL;
 	char **tokens = NULL;
+	char *tok;
 
 	tokens = malloc((contar_palabras(comando) + 1) * sizeof(char *));
 
 	if (tokens == NULL)
-		return (NULL);
+	return (NULL);
 
-	token = strtok(comando, " \t\r\n");
+	tok = _strdup(comando);
+	token = strtok(tok, " \t\r\n");
 
 	while (token != NULL)
 	{
@@ -27,5 +29,6 @@ char **dividir_comandos(char *comando)
 		posicion++;
 	}
 	tokens[posicion] = NULL;
+
 	return (tokens);
 }

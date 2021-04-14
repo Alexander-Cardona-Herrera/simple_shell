@@ -7,8 +7,7 @@ char *read_line(void)
 	char *comando = NULL;
 
 	bytes_leidos = getline(&comando, &numero_bytes, stdin);
-	comando[bytes_leidos - 1] = '\0';
-
+	
 	if (bytes_leidos == EOF)
 	{
 		write(STDOUT_FILENO, "\n", 2);
@@ -16,5 +15,7 @@ char *read_line(void)
 		exit(0);
 	}
 
+	comando[bytes_leidos - 1] = '\0';
+	
 	return (comando);
 }

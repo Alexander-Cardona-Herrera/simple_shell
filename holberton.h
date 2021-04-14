@@ -10,8 +10,6 @@
 #include <signal.h>
 #include <errno.h>
 
-/*main file prototypes*/
-void control_c(int sign);
 
 /*interpreter file prototypes*/
 char *read_line(void);
@@ -26,8 +24,11 @@ int contar_palabras(char *frase);
 char *str_concat(char *s1, char *s2);
 char *_strdup(char *str);
 int _strlen(char *s);
-void _perror(char *tokens);
 
+/*command aux file prototypes*/
+void _perror(char *tokens, char *ruta, int contador);
+void my_reverse (char str [], int len);
+char * my_itoa (int num, char * str, int base);
 
 /*paths file prototypes*/
 char *_path(void);
@@ -36,8 +37,9 @@ extern char **environ;
 
 /*commands file prototypes*/
 char **dividir_comandos(char *comando);
+void control_c(int sign);
 
 /*executor file prototypes*/
-void process_ejecutables(char **tokens);
+void process_ejecutables(char **tokens, char *ruta, int contador);
 
 # endif

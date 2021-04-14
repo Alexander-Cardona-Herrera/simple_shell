@@ -8,7 +8,7 @@
  * Return: void
  */
 
-void process_ejecutables(char **tokens)
+void process_ejecutables(char **tokens, char *ruta, int contador)
 {
 	pid_t pid;
 	int i = 0;
@@ -17,7 +17,7 @@ void process_ejecutables(char **tokens)
 	struct stat st;
 
 	pid = fork();
-	wait(NULL);
+
 	fullpath = _path();
 	paths = dividir_path(fullpath);
 
@@ -37,18 +37,22 @@ void process_ejecutables(char **tokens)
 
 			if (stat(aux, &st) == -1)
 			{
-				_perror(tokens[0]);
+				_perror(tokens[0], ruta, contador);
 				free(aux);
 				exit(0);
 			}
 		}
 		else if (execve(tokens[0], tokens, environ) == -1 && token[0] != '\n')
 		{
-			_perror(tokens[0]);
+			_perror(tokens[0], ruta, contador);
 			free(tokens);
 			exit(0);
 		}
 	}
+	else 	
+	wait(NULL);
+	
+	free(token);
 	free (aux);
 	free(paths);
 }
