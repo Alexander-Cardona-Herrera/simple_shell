@@ -27,5 +27,6 @@ char **dividir_comandos(char *comando)
 	}
 	tokens[posicion] = NULL;
 
+	built_ins(tokens[0]);
 	return (tokens);
 }

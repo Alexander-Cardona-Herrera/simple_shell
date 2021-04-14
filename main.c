@@ -25,7 +25,6 @@ int main(int __attribute__((unused))argc, char **argv)
 
 			comando = read_line();
 			contador++;
-			built_ins(comando);
 			tokens = dividir_comandos(comando);
 			process_ejecutables(tokens, ruta, contador);
 			free(comando);
