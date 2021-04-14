@@ -9,6 +9,7 @@
 #include <sys/types.h>
 #include <signal.h>
 #include <errno.h>
+#include <sys/stat.h>
 
 
 /*interpreter file prototypes*/
@@ -27,8 +28,8 @@ int _strlen(char *s);
 
 /*command aux file prototypes*/
 void _perror(char *tokens, char *ruta, int contador);
-void my_reverse (char str [], int len);
-char * my_itoa (int num, char * str, int base);
+void my_reverse(char str[], int len);
+char *my_itoa(int num, char *str, int base);
 
 /*paths file prototypes*/
 char *_path(void);

@@ -2,7 +2,8 @@
 
 /**
  * main - entry point.
- *
+ * @argc: number of arguments
+ * @argv: arguments
  * Return: Always 0.
  */
 
@@ -14,9 +15,9 @@ int main(int __attribute__((unused))argc, char **argv)
 	char *ruta = argv[0];
 	int contador = 0;
 
-	
+
 		signal(SIGINT, control_c);
-	
+
 		while (status)
 		{
 			if (isatty(STDIN_FILENO) == 1)
@@ -30,6 +31,6 @@ int main(int __attribute__((unused))argc, char **argv)
 			free(comando);
 			free(tokens);
 		}
-	
+
 	return (0);
 }

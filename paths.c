@@ -43,6 +43,7 @@ char **dividir_path(char *aux)
 			conteo++;
 	}
 	char **paths = malloc((conteo + 2) * sizeof(char *));
+
 	if (paths != NULL)
 	{
 		aux1 = _strdup(aux);
