@@ -12,10 +12,12 @@ void process_ejecutables(char **tokens, char *ruta, int contador)
 	char *token = tokens[0], *fullpath = NULL, *aux = NULL;
 	char **paths = NULL;
 	struct stat st;
+	char *copy_path;
 
 	pid = fork();
 	fullpath = _path();
-	paths = dividir_path(fullpath);
+	copy_path = _strdup(fullpath);
+	paths = dividir_path(copy_path);
 	if (pid == 0)
 	{
 		if (tokens[0] != NULL && token[0] != '/')
@@ -41,7 +43,6 @@ void process_ejecutables(char **tokens, char *ruta, int contador)
 			exit(0);
 		}
 	}
-	else
 	wait(NULL);
 	free(token);
 	free(aux);
