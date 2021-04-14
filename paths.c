@@ -36,13 +36,14 @@ char **dividir_path(char *aux)
 	int conteo = 1;
 	char *aux1 = NULL;
 	char *path = NULL;
+	char **paths = NULL;
 
 	for (i = 0; aux[i] != '\0'; i++)
 	{
 		if (aux[i] == ':')
 			conteo++;
 	}
-	char **paths = malloc((conteo + 2) * sizeof(char *));
+	paths = malloc((conteo + 2) * sizeof(char *));
 
 	if (paths != NULL)
 	{

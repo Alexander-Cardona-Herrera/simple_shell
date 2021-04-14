@@ -10,16 +10,9 @@
 
 void _perror(char *tokens, char *ruta, int contador)
 {
-int j = 0;
 char *string;
-char str[j];
+char str[5];
 
-if (contador % 10 < 1 && contador < 10)
-	j = 2;
-if (contador % 100 < 1 && contador < 100 && contador >= 10)
-	j = 3;
-if (contador % 1000 < 1 && contador < 1000 && contador >= 100)
-	j = 4;
 string = my_itoa(contador, str, 10);
 
 write(STDOUT_FILENO, ruta, _strlen(ruta));
@@ -27,9 +20,7 @@ write(STDOUT_FILENO, ": ", 3);
 write(STDOUT_FILENO, string, _strlen(string));
 write(STDOUT_FILENO, ": ", 3);
 write(STDOUT_FILENO, tokens, _strlen(tokens));
-write(STDOUT_FILENO, ": ", 3);
-perror("");
-
+write(STDOUT_FILENO, ": not found", 14);
 }
 
 /**

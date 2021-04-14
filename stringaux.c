@@ -15,14 +15,16 @@ int _strncmp(char *s1, char *s2, size_t n)
 
 	for (i = 0; i < n; i++)
 	{
+		int a1 = 0;
+		int a2 = 0;
 		if (s1[i] == s2[i])
 		{
 			if (i == (n - 1))
 				return (0);
 		}
 
-		int a1 = (int) s1[i];
-		int a2 = (int) s2[i];
+		a1 = (int) s1[i];
+		a2 = (int) s2[i];
 
 		if (a1 > a2)
 			return (1);

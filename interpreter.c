@@ -15,7 +15,8 @@ char *read_line(void)
 
 	if (bytes_leidos == EOF)
 	{
-		write(STDOUT_FILENO, "\n", 2);
+		if (isatty(STDIN_FILENO) == 1)
+			write(STDOUT_FILENO, "\n", 2);
 		free(comando);
 		exit(0);
 	}
