@@ -28,7 +28,7 @@ write(STDOUT_FILENO, string, _strlen(string));
 write(STDOUT_FILENO, ": ", 3);
 write(STDOUT_FILENO, tokens, _strlen(tokens));
 write(STDOUT_FILENO, ": ", 3);
-perror("");
+write(STDOUT_FILENO, "not found\n", 10);
 
 }
 

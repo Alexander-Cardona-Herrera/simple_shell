@@ -9,8 +9,8 @@
 
 int main(int __attribute__((unused))argc, char **argv)
 {
-	char *comando;
-	char **tokens;
+	char *comando = NULL;
+	char **tokens = NULL;
 	int status = 1;
 	char *ruta = argv[0];
 	int contador = 0;
