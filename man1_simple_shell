@@ -1,0 +1,88 @@
+.TH Shell 3 "12 March 2021" "1.0" "Simple Shell Manual"
+
+.SH NAME
+.B Simple Shell - simple Unix tool that interprets commands in c.
+
+.SH SYNOPSIS
+simple_shell [command] [file]
+It allows users to enter commands on the command line interface, interpreting the commands executed by these.
+
+.SH DESCRIPTION
+
+It is a command interpreter that runs in a text mode window, and allows the user to enter commands.
+The basic function of this command interpreter will be to request a command or program, execute it and ask for
+another one.
+executing one line at a time. Each line is tokenized into a set of words separated by spaces or others
+characters with special meaning. The commands or programs will be executed either by putting the absolute path
+or without it. Any text separated by a single space is considered an argument.
+
+The are instructions represented in command words separated by space, which the user provides from the line
+of orders. to enter a command, you must first enter the name of the command followed by the arguments
+or executable flags of this command.
+
+Lines on the shell can be read interactively from standard output. It can also be read non-interactively where
+you can pipe the file. It is designed so that you can act like bash. However, it doesn't handle certain bash features.
+as options.
+
+Shell mode can be divided into interactive mode and non-interactive mode.Interactive mode interacts with the
+user from standard output to complete program execution, this process is simply any shell process you use to type
+commands and get results of those commands.
+In non-interactive mode, the program can be run to completion without interacting with the user.
+
+.SH Arguments
+From input, the first argument is assumed to be an executable command file. It follows the parameters taken by
+that particular command.
+
+.B hsh
+hsh is the executable that interprets the command entered. With this option it is executed, to exit write"exit",
+or control "D" for the case of interactive mode. exit state returns with the state of the previous command.
+
+.SH INTERACTIVE MODE EXAMPLE
+.PP
+.PP
+$ ./hsh
+.PP
+##---> /bin/ls
+.PP
+hsh main.c shell.c interpreter.c builtins.c
+.PP
+##---> exit
+.PP
+$
+.PP
+.PP
+.SH NON-INTERACTIVE MODE EXAMPLE
+.PP
+.PP
+$ echo "/bin/ls" | ./hsh
+.PP
+.PP
+hsh main.c shell.c interpreter.c builtins.c
+.SH ENVIRONMENT
+The environment is an area that the shell creates each time you start a session that contains variables
+that define the properties of the system, the environment A way that the shell keeps track of all your
+settings and details and are represented in this format
+.B KEY=value1:value2:...
+.
+.SH BUILTIN COMMANDS
+The built-in commands are contained within the shell itself. When the name of a built-in command is used as
+the first word of a simple command, the shell executes the command directly, without invoking another program.
+with built-in output, returns an outputs status of 0 running successfully. On failure, returns 126 when the
+invoked command cannot be executed. and 127 in case the command is not found.
+The following are built-in commands run in the shell as builtint
+
+.B env
+
+displays a list of the environment variables and runs another program with the modified
+environment variables
+
+.B exit
+
+Exits the shell
+
+.SH BUGS
+No known bugs
+
+
+.SH AUTHORS
+.B Dania Puertas, Alexander Cardona
