@@ -23,7 +23,6 @@ int _strncmp(char *s1, char *s2, size_t n)
 			if (i == (n - 1))
 				return (0);
 		}
-
 		a1 = (int) s1[i];
 		a2 = (int) s2[i];
 
