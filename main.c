@@ -24,9 +24,9 @@ int main(int __attribute__((unused)) argc, char **argv)
 	{
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, "#cisfun$ ", 10);
-		else
-			status = 0;
+
 		bytes_read = getline(&command, &number_bytes, stdin);
+
 		if (bytes_read == EOF)
 		{
 			if (isatty(STDIN_FILENO) == 1)
@@ -44,8 +44,7 @@ int main(int __attribute__((unused)) argc, char **argv)
 		for (i = 0; tokens[i] != NULL; i++)
 			free(tokens[i]);
 		free(tokens);
-		free(command);
 	}
-
+	free(command);
 	return (0);
 }
