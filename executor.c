@@ -24,10 +24,10 @@ void executable_processes(char **tokens, char *route, int count)
 		{
 			while (paths[count2] != NULL)
 			{
-				aux = str_concat(paths[i], tokens[0]);
+				aux = str_concat(paths[count2], tokens[0]);
 				if (stat(aux, &st) == 0)
 					execve(aux, tokens, NULL);
-				i++;
+				count2++;
 			}
 			if (stat(aux, &st) == -1)
 			{

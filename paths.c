@@ -32,7 +32,7 @@ char *_path(void)
 char **split_path(char *aux)
 {
 	int position = 0;
-	int count;
+	int count1 = 0;
 	int count2 = 1;
 	char *path = NULL;
 	char **paths = NULL;

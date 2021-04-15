@@ -57,6 +57,10 @@ As a future software developer, my goals are to have a broad knowledge of the di
 **Alexander Cardona:**  
 Junior developer in process, sports coach and passionate about computer science, he studied geological engineering and sports management before finding the opportunity in Holberton where he plans to become an outstanding developer.
 
+## **Flowchart**
+	 
+![](https://miro.medium.com/max/5100/1*XAM_wJNsfgDLiEZMiI4MSQ.png)
+
 ## **Special Thanks**
 
 _This project is made with love and that is why the love of all those people who believe in us converges here_

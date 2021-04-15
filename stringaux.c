@@ -48,13 +48,13 @@ int count_words(char *string)
 	for (cont1 = 0; string[cont1]; cont1++)
 	{
 		if (string[cont1] == 32 && string[cont1 + 1] != 32 && string[cont1 + 1] != 0)
-			count2++;
+			cont2++;
 	}
 
 	if (string[0] != 32)
-		count2++;
+		cont2++;
 
-	return (count2);
+	return (cont2);
 }
 
 /**
