@@ -44,6 +44,8 @@ int main(int __attribute__((unused)) argc, char **argv)
 		for (i = 0; tokens[i] != NULL; i++)
 			free(tokens[i]);
 		free(tokens);
+		free(command);
 	}
+
 	return (0);
 }
