@@ -32,9 +32,9 @@ int main(int __attribute__((unused)) argc, char **argv)
 			if (isatty(STDIN_FILENO) == 1)
 			{
 				write(STDOUT_FILENO, "\n", 2);
-				free(command);
-				exit(0);
 			}
+			free(command);
+			exit(0);
 		}
 		command[bytes_read - 1] = '\0';
 
