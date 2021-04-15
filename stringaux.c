@@ -23,8 +23,8 @@ int _strncmp(char *string1, char *string2, size_t number)
 			if (count == (number - 1))
 				return (0);
 		}
-		aux1 = (int) string1[count];
-		aux2 = (int) string2[count];
+		aux1 = (int)string1[count];
+		aux2 = (int)string2[count];
 
 		if (aux1 > aux2)
 			return (1);
@@ -98,6 +98,7 @@ char *str_concat(char *string1, char *string2)
 
 	for (count3 = 0; string2[count3] != '\0'; count3++)
 		aux[count1 + count3] = string2[count3];
+	aux[count1 + count3] = '\0';
 
 	return (aux);
 }
@@ -146,8 +147,8 @@ int _strlen(char *string)
 	int count;
 
 	for (count = 0; *string != '\0'; count++)
-		{
+	{
 		string++;
-		}
+	}
 	return (count);
 }

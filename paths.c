@@ -44,17 +44,20 @@ char **split_path(char *aux)
 	}
 	paths = malloc((count2 + 2) * sizeof(char *));
 
-	if (paths != NULL)
+	if (paths == NULL)
 	{
-
-		path = strtok(aux, ":");
-		while (path != NULL)
-		{
-			paths[position] = _strdup(path);
-			path = strtok(NULL, ":");
-			position++;
-		}
-		paths[position] = NULL;
+		free(paths);
+		return (NULL);
 	}
+
+	path = strtok(aux, ":");
+	while (path != NULL)
+	{
+		paths[position] = _strdup(path);
+		path = strtok(NULL, ":");
+		position++;
+	}
+	paths[position] = NULL;
+
 	return (paths);
 }

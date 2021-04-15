@@ -27,6 +27,5 @@ char **split_commands(char *command)
 	}
 	tokens[position] = NULL;
 
-	built_ins(tokens[0]);
 	return (tokens);
 }
