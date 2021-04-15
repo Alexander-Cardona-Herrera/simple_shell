@@ -2,22 +2,22 @@
 
 /**
  * built_ins - simple shell built-in commands
- * @comando: receives commands to tokenize
+ * @command: receives commands to tokenize
  * main - Return
  * Return: void
  */
 
-void built_ins(char *comando)
+void built_ins(char *command)
 {
 	int i = 0;
 
-	if (_strncmp(comando, "exit", 5) == 0)
+	if (_strncmp(command, "exit", 5) == 0)
 	{
-		free(comando);
+		free(command);
 		exit(0);
 	}
 
-	if (_strncmp(comando, "env", 4) == 0)
+	if (_strncmp(command, "env", 4) == 0)
 	{
 		while (environ[i] != NULL)
 		{

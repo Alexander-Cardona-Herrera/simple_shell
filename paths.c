@@ -8,41 +8,41 @@
 
 char *_path(void)
 {
-	int i = 0;
+	int count = 0;
 	char *aux = NULL;
 
-	while (environ[i] != NULL)
+	while (environ[count] != NULL)
 	{
-		if (!_strncmp(environ[i], "PATH=", 5))
+		if (!_strncmp(environ[count], "PATH=", 5))
 		{
-			aux = environ[i] + 5;
+			aux = environ[count] + 5;
 		}
-		i++;
+		count++;
 	}
 	return (aux);
 }
 
 /**
- * dividir_path - tokenize the path
+ * split_path - tokenize the path
  * @aux: contains information on the path to tokenize
  * main - Return
  * Return: void
  */
 
-char **dividir_path(char *aux)
+char **split_path(char *aux)
 {
-	int posicion = 0;
-	int i;
-	int conteo = 1;
+	int position = 0;
+	int count;
+	int count2 = 1;
 	char *path = NULL;
 	char **paths = NULL;
 
-	for (i = 0; aux[i] != '\0'; i++)
+	for (count1 = 0; aux[count1] != '\0'; count1++)
 	{
-		if (aux[i] == ':')
-			conteo++;
+		if (aux[count1] == ':')
+			count2++;
 	}
-	paths = malloc((conteo + 2) * sizeof(char *));
+	paths = malloc((count2 + 2) * sizeof(char *));
 
 	if (paths != NULL)
 	{
@@ -50,12 +50,11 @@ char **dividir_path(char *aux)
 		path = strtok(aux, ":");
 		while (path != NULL)
 		{
-			paths[posicion] = _strdup(path);
+			paths[position] = _strdup(path);
 			path = strtok(NULL, ":");
-			posicion++;
+			position++;
 		}
-		paths[posicion] = NULL;
+		paths[position] = NULL;
 	}
-	free(aux);
 	return (paths);
 }

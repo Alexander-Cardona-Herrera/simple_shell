@@ -9,11 +9,11 @@
 
 int main(int __attribute__((unused))argc, char **argv)
 {
-	char *comando = NULL;
+	char *command = NULL;
 	char **tokens = NULL;
 	int status = 1;
 	char *ruta = argv[0];
-	int contador = 0;
+	int count = 0;
 
 
 		signal(SIGINT, control_c);
@@ -23,11 +23,11 @@ int main(int __attribute__((unused))argc, char **argv)
 			if (isatty(STDIN_FILENO) == 1)
 				write(STDOUT_FILENO, "#cisfun$ ", 10);
 
-			comando = read_line();
-			contador++;
-			tokens = dividir_comandos(comando);
-			process_ejecutables(tokens, ruta, contador);
-			free(comando);
+			command = read_line();
+			count++;
+			tokens = split_commands(command);
+			executable_processes(tokens, ruta, count);
+			free(command);
 			free(tokens);
 		}
 

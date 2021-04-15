@@ -3,19 +3,19 @@
 /**
  * _perror - Error message
  * @tokens: comandos tokenizados
- * @ruta: comandos tokenizados
- * @contador: comandos tokenizados
+ * @route: comandos tokenizados
+ * @count: comandos tokenizados
  * Return: void
  */
 
-void _perror(char *tokens, char *ruta, int contador)
+void _perror(char *tokens, char *route, int count)
 {
 char *string;
 char str[5];
 
-string = my_itoa(contador, str, 10);
+string = my_itoa(count, str, 10);
 
-write(STDOUT_FILENO, ruta, _strlen(ruta));
+write(STDOUT_FILENO, route, _strlen(route));
 write(STDOUT_FILENO, ": ", 3);
 write(STDOUT_FILENO, string, _strlen(string));
 write(STDOUT_FILENO, ": ", 3);
@@ -38,59 +38,59 @@ void control_c(int sign)
 
 /**
  * my_itoa - Error message
- * @num: comandos tokenizados
+ * @number: comandos tokenizados
  * @str: comandos tokenizados
  * @base: comandos tokenizados
  * Return: strings
  */
 
-char *my_itoa(int num, char *str, int base)
+char *my_itoa(int number, char *str, int base)
 {
-	int i = 0;
+	int count = 0;
 
-	if (num == 0)
+	if (number == 0)
 	{
-		str[i] = '0';
-		str[i + 1] = '\0';
+		str[count] = '0';
+		str[count + 1] = '\0';
 		return (str);
 	}
 
-	if (num < 0 && base == 10)
+	if (number < 0 && base == 10)
 	{
-		num = -num;
+		number = -number;
 	}
 
-	while (num != 0)
+	while (number != 0)
 	{
-		int rem = num % base;
+		int rem = number % base;
 
-		str[i++] = (rem > 9) ? (rem - 10) + 'A' : rem + '0';
-		num = num / base;
+		str[count++] = (rem > 9) ? (rem - 10) + 'A' : rem + '0';
+		number = number / base;
 	}
 
-	str[i] = '\0';
+	str[count] = '\0';
 
-	my_reverse(str, i);
+	my_reverse(str, count);
 
 	return (str);
 }
 
 /**
  * my_reverse - Error message
- * @str: comandos tokenizados
- * @len: comandos tokenizados
+ * @string: comandos tokenizados
+ * @length: comandos tokenizados
  * Return: void
  */
 
-void my_reverse(char *str, int len)
+void my_reverse(char *string, int length)
 {
 	int start, end;
 	char temp;
 
-	for (start = 0, end = len - 1; start < end; start++, end--)
+	for (start = 0, end = length - 1; start < end; start++, end--)
 	{
-		temp = *(str + start);
-		*(str + start) = *(str + end);
-		*(str + end) = temp;
+		temp = *(string + start);
+		*(string + start) = *(string + end);
+		*(string + end) = temp;
 	}
 }

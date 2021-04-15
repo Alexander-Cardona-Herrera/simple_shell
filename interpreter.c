@@ -7,21 +7,21 @@
 
 char *read_line(void)
 {
-	ssize_t bytes_leidos;
-	size_t numero_bytes = 0;
-	char *comando = NULL;
+	ssize_t bytes_read;
+	size_t number_bytes = 0;
+	char *command = NULL;
 
-	bytes_leidos = getline(&comando, &numero_bytes, stdin);
+	bytes_read = getline(&command, &number_bytes, stdin);
 
-	if (bytes_leidos == EOF)
+	if (bytes_read == EOF)
 	{
 		if (isatty(STDIN_FILENO) == 1)
 			write(STDOUT_FILENO, "\n", 2);
-		free(comando);
+		free(command);
 		exit(0);
 	}
 
-	comando[bytes_leidos - 1] = '\0';
+	command[bytes_read - 1] = '\0';
 
-	return (comando);
+	return (command);
 }

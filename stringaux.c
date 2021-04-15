@@ -2,102 +2,102 @@
 
 /**
  * _strncmp - function that compares two strings
- * @s1: first variable to compare
- * @s2: second variable to compare
- * @n: size
+ * @string1: first variable to compare
+ * @string2: second variable to compare
+ * @number: size
  * main - Return
  * Return: void
  */
 
-int _strncmp(char *s1, char *s2, size_t n)
+int _strncmp(char *string1, char *string2, size_t number)
 {
-	size_t i;
+	size_t count;
 
-	for (i = 0; i < n; i++)
+	for (count = 0; count < number; count++)
 	{
-		int a1 = 0;
-		int a2 = 0;
+		int aux1 = 0;
+		int aux2 = 0;
 
-		if (s1[i] == s2[i])
+		if (string1[count] == string2[count])
 		{
-			if (i == (n - 1))
+			if (count == (number - 1))
 				return (0);
 		}
-		a1 = (int) s1[i];
-		a2 = (int) s2[i];
+		aux1 = (int) string1[count];
+		aux2 = (int) string2[count];
 
-		if (a1 > a2)
+		if (aux1 > aux2)
 			return (1);
-		if (a2 > a1)
+		if (aux2 > aux1)
 			return (-1);
 	}
 	return (0);
 }
 
 /**
- * contar_palabras - function that counts words
- * @frase: sentence containing the words to count
+ * count_words - function that counts words
+ * @string: sentence containing the words to count
  * main - Return
  * Return: void
  */
 
-int contar_palabras(char *frase)
+int count_words(char *string)
 {
-	int i, count = 0;
+	int cont1, cont2 = 0;
 
-	for (i = 0; frase[i]; i++)
+	for (cont1 = 0; string[cont1]; cont1++)
 	{
-		if (frase[i] == 32 && frase[i + 1] != 32 && frase[i + 1] != 0)
-			count++;
+		if (string[cont1] == 32 && string[cont1 + 1] != 32 && string[cont1 + 1] != 0)
+			count2++;
 	}
 
-	if (frase[0] != 32)
-		count++;
+	if (string[0] != 32)
+		count2++;
 
-	return (count);
+	return (count2);
 }
 
 /**
  * str_concat - function that concatenates two strings
- * @s1: first word to concatenate
- * @s2: second word to concatenate
+ * @string1: first word to concatenate
+ * @string2: second word to concatenate
  * main - Return
  * Return: void
  */
 
-char *str_concat(char *s1, char *s2)
+char *str_concat(char *string1, char *string2)
 {
 	char *aux;
-	int i, j, k;
+	int count1, count2, count3;
 
-	if (s1 == NULL)
-		s1 = "";
+	if (string1 == NULL)
+		string1 = "";
 
-	if (s2 == NULL)
-		s2 = "";
+	if (string2 == NULL)
+		string2 = "";
 
-	for (i = 0; s1[i] != '\0'; i++)
+	for (count1 = 0; string1[count1] != '\0'; count1++)
 	{
 	}
-	i++;
+	count1++;
 
-	for (k = 0; s2[k] != '\0'; k++)
+	for (count2 = 0; string2[count2] != '\0'; count2++)
 	{
 	}
-	k++;
+	count2++;
 
-	aux = malloc((i + k) * sizeof(char));
+	aux = malloc((count1 + count2) * sizeof(char));
 
 	if (!aux)
 		return (NULL);
 
-	for (j = 0; s1[j] != '\0'; j++)
-		aux[j] = s1[j];
+	for (count3 = 0; string1[count3] != '\0'; count3++)
+		aux[count3] = string1[count3];
 
-	aux[j++] = '/';
+	aux[count3++] = '/';
 
-	for (j = 0; s2[j] != '\0'; j++)
-		aux[i + j] = s2[j];
+	for (count3 = 0; string2[count3] != '\0'; count3++)
+		aux[count1 + count3] = string2[count3];
 
 	return (aux);
 }
@@ -112,42 +112,42 @@ char *str_concat(char *s1, char *s2)
 char *_strdup(char *str)
 {
 	char *aux;
-	int i;
-	int j;
+	int count1;
+	int count2;
 
 	if (str == 0)
 		return (NULL);
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (count1 = 0; str[count1] != '\0'; count1++)
 	{
 	}
-	i++;
+	count1++;
 
-	aux = malloc((i + 1) * sizeof(char));
+	aux = malloc((count1 + 1) * sizeof(char));
 
 	if (!aux)
 		return (NULL);
 
-	for (j = 0; j < i; j++)
-		aux[j] = str[j];
+	for (count2 = 0; count2 < count1; count2++)
+		aux[count2] = str[count2];
 
 	return (aux);
 }
 
 /**
  * _strlen - function that returns size of a string
- * @s: string
+ * @string: string
  * main - Return
  * Return: void
  */
 
-int _strlen(char *s)
+int _strlen(char *string)
 {
-	int c;
+	int count;
 
-	for (c = 0; *s != '\0'; c++)
+	for (count = 0; *string != '\0'; count++)
 		{
-		s++;
+		string++;
 		}
-	return (c);
+	return (count);
 }

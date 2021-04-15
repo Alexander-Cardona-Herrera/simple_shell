@@ -1,28 +1,28 @@
 #include "holberton.h"
 /**
- * process_ejecutables - this process creates the child processes and executes
+ * executable_processes - this process creates the child processes and executes
  * @tokens: tokens
- * @ruta: executor
- * @contador: number of entries
+ * @route: executor
+ * @count: number of entries
  */
-void process_ejecutables(char **tokens, char *ruta, int contador)
+void executable_processes(char **tokens, char *route, int count)
 {
 	pid_t pid;
-	int i = 0;
-	char *token = tokens[0], *fullpath = NULL, *aux = NULL;
+	int count2 = 0;
+	char *token = tokens[0], *fullpath = NULL, *aux = NULL, *copy_path;
 	char **paths = NULL;
 	struct stat st;
-	char *copy_path;
 
+	built_ins(token);
 	pid = fork();
 	fullpath = _path();
 	copy_path = _strdup(fullpath);
-	paths = dividir_path(copy_path);
+	paths = split_path(copy_path);
 	if (pid == 0)
 	{
 		if (tokens[0] != NULL && token[0] != '/')
 		{
-			while (paths[i] != NULL)
+			while (paths[count2] != NULL)
 			{
 				aux = str_concat(paths[i], tokens[0]);
 				if (stat(aux, &st) == 0)
@@ -31,14 +31,14 @@ void process_ejecutables(char **tokens, char *ruta, int contador)
 			}
 			if (stat(aux, &st) == -1)
 			{
-				_perror(tokens[0], ruta, contador);
+				_perror(tokens[0], route, count);
 				free(aux);
 				exit(0);
 			}
 		}
 		else if (execve(tokens[0], tokens, environ) == -1 && token[0] != '\n')
 		{
-			_perror(tokens[0], ruta, contador);
+			_perror(tokens[0], route, count);
 			free(tokens);
 			exit(0);
 		}
