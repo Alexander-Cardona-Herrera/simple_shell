@@ -2,8 +2,7 @@
 
 /**
  * _path - tells where executable programs are located on the system
- * main - Return
- * Return: void
+ * Return: Aux
  */
 
 char *_path(void)
@@ -13,8 +12,10 @@ char *_path(void)
 
 	while (environ[count] != NULL)
 	{
+		/*finding the path*/
 		if (!_strncmp(environ[count], "PATH=", 5))
 		{
+			/*we store our Path in the variable aux*/
 			aux = environ[count] + 5;
 		}
 		count++;
@@ -42,6 +43,7 @@ char **split_path(char *aux)
 		if (aux[count1] == ':')
 			count2++;
 	}
+	/*/*allocate memory to pointer paths*/
 	paths = malloc((count2 + 2) * sizeof(char *));
 
 	if (paths == NULL)
@@ -49,11 +51,13 @@ char **split_path(char *aux)
 		free(paths);
 		return (NULL);
 	}
-
+	/* pointer receiving tokenized path*/
 	path = strtok(aux, ":");
+	/*as long as tokens is different from null it makes a copy of token in token*/
 	while (path != NULL)
 	{
 		paths[position] = _strdup(path);
+		/*end in null*/
 		path = strtok(NULL, ":");
 		position++;
 	}

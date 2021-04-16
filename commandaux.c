@@ -3,29 +3,30 @@
 /**
  * _perror - Error message
  * @tokens: comandos tokenizados
- * @route: comandos tokenizados
- * @count: comandos tokenizados
+ * @route: executable name
+ * @count: count
  * Return: void
  */
 
 void _perror(char *tokens, char *route, int count)
 {
-char *string;
-char str[5];
+	char *string; /*stores the number converted to string*/
+	char str[5];  /*buffer itoa*/
 
-string = my_itoa(count, str, 10);
+	/*converting number to string*/
+	string = my_itoa(count, str, 10);
 
-write(STDOUT_FILENO, route, _strlen(route));
-write(STDOUT_FILENO, ": ", 3);
-write(STDOUT_FILENO, string, _strlen(string));
-write(STDOUT_FILENO, ": ", 3);
-write(STDOUT_FILENO, tokens, _strlen(tokens));
-write(STDOUT_FILENO, ": not found", 13);
+	write(STDOUT_FILENO, route, _strlen(route));
+	write(STDOUT_FILENO, ": ", 3);
+	write(STDOUT_FILENO, string, _strlen(string));
+	write(STDOUT_FILENO, ": ", 3);
+	write(STDOUT_FILENO, tokens, _strlen(tokens));
+	write(STDOUT_FILENO, ": not found", 13);
 }
 
 /**
- * control_c - Error message
- * @sign: comandos tokenizados
+ * control_c - not to get out with control c
+ * @sign: handle signals
  * Return: void
  */
 
